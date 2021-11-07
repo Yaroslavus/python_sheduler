@@ -15,11 +15,8 @@ from time import sleep
 # Time marks HAVE TO BE writed in the ascending order.
 # ==================================================================== #
 # ==================================================================== #
-TIME_MARKS = []
-for i in range (23):
-    TIME_MARKS.append("{}:00:00".format(i))
 
-#TIME_MARKS = ["12:00:00", "18:00:00", "00:00:00", "06:00:00"]
+TIME_MARKS = ["12:00:00", "18:00:00", "00:00:00", "06:00:00"]
 # ==================================================================== #
 # ==================================================================== #
 
@@ -37,7 +34,6 @@ for i in range(len(TIME_MARKS_DATETIME_FORMAT)-1):
     if (TIME_MARKS_DATETIME_FORMAT[i] < time_now) and (TIME_MARKS_DATETIME_FORMAT[i+1] > time_now):
         next_time_mark = TIME_MARKS_DATETIME_FORMAT[i+1]
         n = i+1
-#print("Next time mark:\t{}".format(next_time_mark))
 
 while True:
     time_now = datetime.datetime.now()
