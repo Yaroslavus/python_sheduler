@@ -37,10 +37,15 @@ for i in range(len(TIME_MARKS_DATETIME_FORMAT)-1):
     if (TIME_MARKS_DATETIME_FORMAT[i] < time_now) and (TIME_MARKS_DATETIME_FORMAT[i+1] > time_now):
         next_time_mark = TIME_MARKS_DATETIME_FORMAT[i+1]
         n = i+1
-print("Next time mark:\t{}".format(next_time_mark))
+#print("Next time mark:\t{}".format(next_time_mark))
 
 while True:
     time_now = datetime.datetime.now()
+    if time_now > TIME_MARKS_DATETIME_FORMAT[n]:
+        for i in range(len(TIME_MARKS_DATETIME_FORMAT)):
+            TIME_MARKS_DATETIME_FORMAT[i] += datetime.timedelta(days=1)
+        next_time_mark = TIME_MARKS_DATETIME_FORMAT[n]
+    print("Next time mark:\t{}".format(next_time_mark))
     sleep((next_time_mark - time_now).total_seconds())
 # ==================================================================== #
 # Here will be code to execute. Paste it into the " " brackets.
@@ -52,16 +57,4 @@ while True:
     if n == len(TIME_MARKS_DATETIME_FORMAT) - 1:
         n = 0
     else: n += 1
-    if time_now > TIME_MARKS_DATETIME_FORMAT[n]:
-        for datetime_item in TIME_MARKS_DATETIME_FORMAT:
-            datetime_item += datetime.timedelta(days=1)
-            
-    next_time_mark = TIME_MARKS_DATETIME_FORMAT[n]
-    print("Next time mark:\t{}".format(next_time_mark))
-        
-        
-        
-        
-        
-        
         
