@@ -12,14 +12,10 @@ from time import sleep
 # ==================================================================== #
 # Please, fill the list of time marks with strings in following format:
 # Time mark = "hh:mm:ss"
-# Time marks HAVE TO BE writed in the ascending order.
-# ==================================================================== #
+# Time marks HAVE TO BE recorded in the ascending order.
 # ==================================================================== #
 
 TIME_MARKS = ["12:00:00", "18:00:00", "00:00:00", "06:00:00"]
-# ==================================================================== #
-# ==================================================================== #
-
 
 TIME_MARKS_DATETIME_FORMAT = []
 for time_mark in TIME_MARKS:
@@ -40,17 +36,15 @@ while True:
     if time_now > TIME_MARKS_DATETIME_FORMAT[n]:
         for i in range(len(TIME_MARKS_DATETIME_FORMAT)):
             TIME_MARKS_DATETIME_FORMAT[i] += datetime.timedelta(days=1)
-        next_time_mark = TIME_MARKS_DATETIME_FORMAT[n]
-    print("Next time mark:\t{}".format(next_time_mark))
+    next_time_mark = TIME_MARKS_DATETIME_FORMAT[n]
     sleep((next_time_mark - time_now).total_seconds())
 # ==================================================================== #
-# Here will be code to execute. Paste it into the " " brackets.
-# Then uncomment the string with the command and comment the other one.
+# Here will be command to execute. Paste it into the " " brackets
+# in the 46 string. Then uncomment the string - delete the "#" symbol.
 # ==================================================================== #
 #    sys.os("")
-    print("2 + 2  = 4", datetime.datetime.now())
 # ==================================================================== #
     if n == len(TIME_MARKS_DATETIME_FORMAT) - 1:
         n = 0
     else: n += 1
-        
+
